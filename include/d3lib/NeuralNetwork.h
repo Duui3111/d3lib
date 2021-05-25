@@ -178,36 +178,6 @@ namespace d3lib
             return data;
         }
 
-        std::vector<double> FeedForword(std::vector<double> input)
-        {
-            std::vector<double> retwi;
-            for(size_t i = 0; i < input.size(); i++)
-                retwi.push_back(MatrixFunc::mul(Weights, input)[i]);
-
-            std::vector<double> ret;
-            for (double &x : retwi)	
-                ret.push_back(NNFunc::sigmoid()(x));
-            values = ret;
-            return ret;
-        }
-
-        std::vector<double> backPropagate(std::vector<double> targetOutput)
-        {
-            std::vector<double> output;
-            for(size_t i = 0; i < targetOutput.size(); i++)
-                error += targetOutput[i] - values[i];
-
-            for(int32_t i = Weights.size() - 1; i >= 0; i--)
-            {	
-                std::vector<double> dOutputs; 
-                for(size_t i = 0; i < values.size(); i++)
-                    dOutputs.push_back(NNFunc::sigmoid_d()(values[i]));
-                output = MatrixFunc::mul(Matrix<double>({dOutputs}), std::vector<double>({error}));;
-            }
-
-            return std::vector<double>({output[0] * 0.5});
-        }
-            
         template<typename Data>
         Matrix<double> train(const std::vector<Data> &a) 
         {
