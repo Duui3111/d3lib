@@ -63,32 +63,6 @@ namespace d3lib
 
     };
 
-    // class Xml
-    // {
-    // private:
-    //     std::string xml;
-    //     std::string value;
-        
-    // public:
-    //     Xml(std::string xml) : xml(xml), value(xml) {}
-    //     ~Xml() {}
-
-    //     Xml tag(std::string tag) 
-    //     { 
-    //        // const std::regex re( R"(\s*<([A-Z][A-Z0-9]*)\b[^>]*>(.*?)</\1>\s*)", std::regex::icase );
-    //         const std::regex re("\\<"+tag+"(/*)>(.*)\\</"+tag+"\\>");
-            
-    //         std::smatch results;   
-    //         if(std::regex_match(value, results, re)) 
-    //             value = results[1].str();
-
-    //         return *this; 
-    //     }
-
-    //     std::string GetTagValue() { return value; }
-       
-    //     Xml att(std::string att) { return *this; }
-    // };
 }
 
 #endif
